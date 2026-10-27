@@ -8,6 +8,10 @@ logs written by the **ADK BigQuery Agent Analytics plugin** and deploys to
 - **Stack:** React + Vite + Tailwind + ECharts frontend, served by a FastAPI backend, in one container.
 - **Access model:** sign-in through IAP. The backend reads BigQuery with a dedicated read-only service account.
 
+![Conversations explorer grouped by thread, showing review flags, token and latency columns](docs/images/conversations.png)
+
+<sub>Conversations explorer in "By thread" mode. The viewer email, project ID and user IDs are redacted.</sub>
+
 ## Features
 
 | Screen | What admins get |
@@ -119,6 +123,7 @@ The smoke test loads every screen and opens the first conversation it finds. It 
 backend/            FastAPI app (main.py), SQL builders (queries.py), tests
 frontend/           React + Vite app (src/pages, src/components)
 tests/e2e/          Puppeteer smoke test
+docs/images/        README screenshots (PII redacted)
 Dockerfile          Multi-stage build: frontend, then Python runtime (non-root)
 deploy.sh           Idempotent Cloud Run + IAP deployment
 destroy.sh          Teardown

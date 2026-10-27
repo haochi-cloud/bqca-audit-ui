@@ -9,3 +9,4 @@ tests/
 deploy.env
 .env
 *.log
+docs/
