@@ -1,0 +1,25 @@
+# Local config / credentials
+deploy.env
+.env
+*.json.key
+application_default_credentials.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Node / build
+node_modules/
+frontend/dist/
+backend/static/
+
+# Test artifacts
+tests/e2e/shots/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.log

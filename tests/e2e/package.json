@@ -1,0 +1,7 @@
+{
+  "name": "bqca-audit-ui-e2e",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": { "test": "node smoke.js" },
+  "devDependencies": { "puppeteer-core": "^23.11.1" }
+}

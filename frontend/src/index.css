@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+html, body, #root { height: 100%; }
+body {
+  @apply bg-zinc-50 text-zinc-950 antialiased dark:bg-[#09090b] dark:text-zinc-50 font-sans;
+}
+
+/* Thin scrollbars */
+* { scrollbar-width: thin; scrollbar-color: rgb(113 113 122 / 0.4) transparent; }
+
+@utility card {
+  @apply bg-white dark:bg-[#0c0c0f] border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-sm;
+}
+@utility input {
+  @apply w-full bg-white dark:bg-[#09090b] border border-zinc-200 dark:border-zinc-800 rounded-lg px-3 py-2 text-sm shadow-sm
+         focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 text-zinc-950 dark:text-zinc-100 transition-all
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+@utility btn {
+  @apply inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors shadow-sm
+         disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap;
+}
+@utility btn-secondary {
+  @apply inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors shadow-sm
+         disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap
+         bg-white dark:bg-[#18181b] hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-200
+         border border-zinc-200 dark:border-zinc-700;
+}
+@utility btn-primary {
+  @apply inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors shadow-sm
+         disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap bg-blue-600 hover:bg-blue-700 text-white;
+}
+@utility btn-ghost {
+  @apply inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors
+         disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap
+         text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/50;
+}
+@utility label {
+  @apply text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1.5 block;
+}
+@utility mono-id {
+  @apply font-mono text-xs text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800/80 rounded px-1.5 py-0.5;
+}
+@utility h6 {
+  @apply text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400;
+}
+
+/* Markdown rendered from agent responses */
+.md {
+  @apply prose prose-sm prose-zinc dark:prose-invert max-w-none;
+}
+.md :where(h1, h2, h3, h4) { margin-top: 0.75rem; margin-bottom: 0.375rem; letter-spacing: -0.01em; }
+.md :where(p) { margin-top: 0.375rem; margin-bottom: 0.375rem; }
+.md :where(li) { margin-top: 0.125rem; margin-bottom: 0.125rem; }
+.md :where(code)::before, .md :where(code)::after { content: none; }
+.md table { @apply text-xs border border-zinc-200 dark:border-zinc-800; }
+.md th, .md td { @apply px-2; }
+.md th { @apply bg-zinc-100 dark:bg-zinc-900; }
+
+mark { @apply bg-amber-200/80 dark:bg-amber-500/30 text-inherit rounded-sm px-0.5; }
+
+@keyframes slide-in { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: none; } }
+.animate-slide-in { animation: slide-in 220ms ease-out; }
